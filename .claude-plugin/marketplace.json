@@ -10,7 +10,7 @@
   "plugins": [
     {
       "name": "yavy",
-      "source": "./yavy",
+      "source": "./",
       "description": "Generate AI skills from your indexed documentation on Yavy",
       "version": "0.1.0",
       "author": {

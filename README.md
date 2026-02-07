@@ -20,10 +20,7 @@ Interactive setup that installs the CLI, authenticates with your Yavy account, a
 Add the marketplace and install the plugin:
 
 ```
-/plugin marketplace add yavydev/claude-code
-```
-```
-/plugin install yavy@yavy
+/install-plugin yavydev/claude-code yavy
 ```
 
 ## Usage
