@@ -1,22 +1,22 @@
 {
-  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "yavydev",
-  "description": "Claude Code plugins for generating AI skills from indexed documentation",
-  "owner": {
-    "name": "Yavy",
-    "url": "https://yavy.dev"
-  },
-  "plugins": [
-    {
-      "name": "yavy",
-      "description": "Generate AI skills from your indexed documentation on Yavy",
-      "version": "0.1.0",
-      "author": {
+    "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+    "name": "yavydev",
+    "description": "Claude Code plugins for generating AI skills from indexed documentation",
+    "owner": {
         "name": "Yavy",
         "url": "https://yavy.dev"
-      },
-      "source": "./",
-      "category": "productivity"
-    }
-  ]
+    },
+    "plugins": [
+        {
+            "name": "yavy",
+            "description": "Generate AI skills from your indexed documentation on Yavy",
+            "version": "0.1.0",
+            "author": {
+                "name": "Yavy",
+                "url": "https://yavy.dev"
+            },
+            "source": "./",
+            "category": "productivity"
+        }
+    ]
 }

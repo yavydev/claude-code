@@ -1,10 +1,10 @@
 {
-  "name": "yavy",
-  "version": "0.1.0",
-  "description": "Generate AI skills from your indexed documentation on Yavy",
-  "author": {
-    "name": "Yavy",
-    "url": "https://yavy.dev"
-  },
-  "skills": "./skills/"
+    "name": "yavy",
+    "version": "0.1.0",
+    "description": "Generate AI skills from your indexed documentation on Yavy",
+    "author": {
+        "name": "Yavy",
+        "url": "https://yavy.dev"
+    },
+    "skills": "./skills/"
 }
