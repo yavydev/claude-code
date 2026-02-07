@@ -1,9 +1,23 @@
 {
-  "title": "Yavy - Documentation Skills",
-  "subtitle": "Turn your indexed docs into Claude Code skills",
-  "tags": ["documentation", "skills", "ai"],
-  "categories": ["productivity", "developer-tools"],
-  "homepage": "https://yavy.dev",
-  "repository": "https://github.com/yavydev/claude-code",
-  "icon": "https://yavy.dev/icon.png"
+  "name": "yavy",
+  "owner": {
+    "name": "Yavy",
+    "url": "https://yavy.dev"
+  },
+  "metadata": {
+    "description": "Claude Code plugins for generating AI skills from indexed documentation"
+  },
+  "plugins": [
+    {
+      "name": "yavy",
+      "source": "./yavy",
+      "description": "Generate AI skills from your indexed documentation on Yavy",
+      "version": "0.1.0",
+      "author": {
+        "name": "Yavy",
+        "url": "https://yavy.dev"
+      },
+      "category": "productivity"
+    }
+  ]
 }
