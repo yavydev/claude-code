@@ -1,0 +1,9 @@
+{
+  "title": "Yavy - Documentation Skills",
+  "subtitle": "Turn your indexed docs into Claude Code skills",
+  "tags": ["documentation", "skills", "ai"],
+  "categories": ["productivity", "developer-tools"],
+  "homepage": "https://yavy.dev",
+  "repository": "https://github.com/yavydev/claude-code",
+  "icon": "https://yavy.dev/icon.png"
+}
