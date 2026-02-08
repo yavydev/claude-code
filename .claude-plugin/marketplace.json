@@ -8,7 +8,7 @@
     },
     "plugins": [
         {
-            "name": "yavy",
+            "name": "yavy-docs",
             "description": "Generate AI skills from your indexed documentation on Yavy",
             "version": "0.1.0",
             "author": {
