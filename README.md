@@ -4,7 +4,7 @@ A collection of Claude Code plugins for generating AI skills from your indexed d
 
 ## Plugins
 
-### yavy
+### yavy-docs
 
 Interactive setup that installs the CLI, authenticates with your Yavy account, and generates skills for your selected projects.
 
@@ -21,7 +21,7 @@ Add the marketplace and install the plugin:
 
 ```
 /plugin marketplace add yavydev/claude-code
-/plugin install yavy@yavy-docs
+/plugin install yavy-docs@yavy
 ```
 
 ## Usage
