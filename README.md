@@ -21,7 +21,7 @@ Add the marketplace and install the plugin:
 
 ```
 /plugin marketplace add yavydev/claude-code
-/plugin install yavy@yavydev
+/plugin install yavy@yavy
 ```
 
 ## Usage
