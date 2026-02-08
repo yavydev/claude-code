@@ -1,6 +1,6 @@
 {
     "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-    "name": "yavydev",
+    "name": "yavy",
     "description": "Claude Code plugins for generating AI skills from indexed documentation",
     "owner": {
         "name": "Yavy",
