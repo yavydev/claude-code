@@ -1,6 +1,6 @@
 ---
 description: Set up Yavy skill generation - installs CLI, authenticates, and generates project skills for Claude Code
-allowed-tools: ["Bash", "Read", "Write", "Glob", "AskUserQuestion"]
+allowed-tools: ['Bash', 'Read', 'Write', 'Glob', 'AskUserQuestion']
 ---
 
 You are setting up Yavy for this user. Yavy indexes documentation and generates Claude Code skills from it. Your job is to walk the user through the complete setup **conversationally** - like a friendly coworker, not a script.
