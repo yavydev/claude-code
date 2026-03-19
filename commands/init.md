@@ -83,45 +83,62 @@ After project selection, ask the user which integration approach they prefer usi
 
 ### Step 5a: CLI Search Approach
 
-If the user chose **CLI Search**, create a skill file for each selected project.
+If the user chose **CLI Search**, create a **single** skill at `.claude/skills/yavy/SKILL.md` that covers all selected projects.
 
-For each project, write this SKILL.md to `.claude/skills/{project-slug}/SKILL.md`:
+**Build the skill dynamically** from the selected projects' metadata (name, slug, description, pages_count from the `yavy projects --json` output):
+
+1. Build a **description** string listing the technology/domain names from the selected projects, comma-separated. Example: `"Search indexed documentation for Inertia.js v2, Buckaroo payments API, oh-my-claudecode. Use when user needs reference info, asks 'how does X work', or needs to look up APIs, features, or concepts from these projects."`
+
+2. Build a **project table** with name, slug, and page count.
+
+3. Write this template to `.claude/skills/yavy/SKILL.md`:
 
 ```markdown
 ---
-name: {project_name}-docs
-description: "Search {project_name} documentation using Yavy CLI. Use when working with {project_name} features, APIs, or concepts."
+name: yavy
+description: "{generated description with project names for triggering}"
 allowed-tools: ['Bash']
 ---
 
-Search {project_name} documentation via the Yavy CLI.
+# Yavy Documentation Search
 
-## How to search
+Search indexed documentation via the Yavy CLI.
 
-Run this command to find relevant documentation:
+## Commands
 
-\`\`\`bash
-yavy search "your question" --project {org_slug}/{project_slug} --json
-\`\`\`
+| Command | Purpose |
+|---------|---------|
+| `yavy search "query"` | Search all projects |
+| `yavy search "query" --project {slug}` | Search one project |
+| `yavy search "query" --json` | JSON output for parsing |
 
-The `--json` flag returns structured results. Each result has:
-- `title` — page title
-- `url` — source URL for full context
-- `content` — relevant content snippet
-- `project` — the project slug
+## Indexed Projects
 
-## Tips
+| Project | Slug | Pages |
+|---------|------|-------|
+| {name} | `{org}/{project}` | {count} |
+| ... | ... | ... |
 
-- Use natural language queries describing what you need
-- The search is semantic — it finds concepts, not just keywords
-- Follow the `url` field if you need the complete page content
+## When to Use --project
+
+- User mentions a specific technology from the table above
+- Query clearly scopes to one domain
+- Omit when topic could span multiple projects
+
+## Gotchas
+
+| Issue | Fix |
+|---|---|
+| No results | Broaden query or remove --project |
+| CLI not installed | Run `npm install -g @yavydev/cli` then `yavy login` |
+| Stale project list | Re-run `/yavy:init` to refresh |
 ```
 
-Replace `{project_name}`, `{org_slug}`, and `{project_slug}` with the actual values from the selected project.
+Replace all `{...}` placeholders with actual values. Keep the description under 500 characters.
 
-After creating each skill file, confirm:
+After creating the skill, confirm:
 
-> "Created search skill for **{project name}** → `.claude/skills/{project-slug}/SKILL.md`"
+> "Created Yavy search skill → `.claude/skills/yavy/SKILL.md` (covers {N} projects)"
 
 ### Step 5b: Skill Archive Approach
 
@@ -156,8 +173,8 @@ List each skill with its path and approach type.
 Then close based on approach:
 
 **For CLI Search:**
-> "These skills will search your docs on-demand when you're working with related code. Your docs stay up-to-date automatically."
-> "Run `/yavy:init` again anytime to add more projects."
+> "The yavy skill will search your docs on-demand when you're working with related code. Your docs stay up-to-date automatically."
+> "Run `/yavy:init` again anytime to add more projects or refresh the project list."
 
 **For Skill Archive:**
 > "These skills will automatically activate when you're working with related code. No extra commands needed."
