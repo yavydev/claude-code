@@ -14,24 +14,45 @@ You are setting up Yavy for this user. Yavy indexes documentation and makes it s
 
 ## Flow
 
+### Step 0: Check for `yavy init` (Preferred Path)
+
+Before starting the manual flow, check if the Yavy CLI supports `init`:
+
+```bash
+yavy --version 2>/dev/null
+```
+
+- **If installed (v0.2.0+):** Delegate to the CLI's built-in init command:
+
+  > "Yavy CLI detected! Running the guided setup..."
+
+  ```bash
+  yavy init --tool claude-code
+  ```
+
+  If `yavy init` succeeds, skip the rest of this flow entirely. If it fails, fall back to the manual steps below.
+
+- **If not installed or older version:** Continue with the manual flow below.
+
 ### Step 1: Welcome & CLI Check
 
 Start with a brief, warm greeting:
 
 > "Hey! Let's get Yavy set up so you can search your indexed docs from Claude Code."
 
-Check if the Yavy CLI is installed:
+Ask the user:
+
+> "I need to install the Yavy CLI first. Mind if I run `npm install -g @yavydev/cli`?"
+
+Wait for confirmation, then install. If install fails, suggest alternatives (npx, local install).
+
+After installing, try the preferred path again:
 
 ```bash
-yavy --version 2>/dev/null
+yavy init --tool claude-code
 ```
 
-- **If installed:** "Yavy CLI is already installed (v{version}). Moving on."
-- **If not installed:** Ask the user:
-
-  > "I need to install the Yavy CLI first. Mind if I run `npm install -g @yavydev/cli`?"
-
-  Wait for confirmation, then install. If install fails, suggest alternatives (npx, local install).
+If it works, skip to the summary. Otherwise continue with the manual flow.
 
 ### Step 2: Authentication
 
