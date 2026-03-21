@@ -117,7 +117,7 @@ If the user chose **CLI Search**, create a **single** skill at `.claude/skills/y
 ```markdown
 ---
 name: yavy
-description: "{generated description with project names for triggering}"
+description: '{generated description with project names for triggering}'
 allowed-tools: ['Bash']
 ---
 
@@ -127,18 +127,18 @@ Search indexed documentation via the Yavy CLI.
 
 ## Commands
 
-| Command | Purpose |
-|---------|---------|
-| `yavy search "query"` | Search all projects |
-| `yavy search "query" --project {slug}` | Search one project |
-| `yavy search "query" --json` | JSON output for parsing |
+| Command                                | Purpose                 |
+| -------------------------------------- | ----------------------- |
+| `yavy search "query"`                  | Search all projects     |
+| `yavy search "query" --project {slug}` | Search one project      |
+| `yavy search "query" --json`           | JSON output for parsing |
 
 ## Indexed Projects
 
-| Project | Slug | Pages |
-|---------|------|-------|
-| {name} | `{org}/{project}` | {count} |
-| ... | ... | ... |
+| Project | Slug              | Pages   |
+| ------- | ----------------- | ------- |
+| {name}  | `{org}/{project}` | {count} |
+| ...     | ...               | ...     |
 
 ## When to Use --project
 
@@ -148,11 +148,11 @@ Search indexed documentation via the Yavy CLI.
 
 ## Gotchas
 
-| Issue | Fix |
-|---|---|
-| No results | Broaden query or remove --project |
-| CLI not installed | Run `npm install -g @yavydev/cli` then `yavy login` |
-| Stale project list | Re-run `/yavy:init` to refresh |
+| Issue              | Fix                                                 |
+| ------------------ | --------------------------------------------------- |
+| No results         | Broaden query or remove --project                   |
+| CLI not installed  | Run `npm install -g @yavydev/cli` then `yavy login` |
+| Stale project list | Re-run `/yavy:init` to refresh                      |
 ```
 
 Replace all `{...}` placeholders with actual values. Keep the description under 500 characters.
@@ -194,9 +194,11 @@ List each skill with its path and approach type.
 Then close based on approach:
 
 **For CLI Search:**
+
 > "The yavy skill will search your docs on-demand when you're working with related code. Your docs stay up-to-date automatically."
 > "Run `/yavy:init` again anytime to add more projects or refresh the project list."
 
 **For Skill Archive:**
+
 > "These skills will automatically activate when you're working with related code. No extra commands needed."
 > "Run `/yavy:init` again to regenerate after doc updates or to add new projects."
