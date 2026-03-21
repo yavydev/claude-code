@@ -14,15 +14,15 @@ You are setting up Yavy for this user. Yavy indexes documentation and makes it s
 
 ## Flow
 
-### Step 0: Check for `yavy init` (Preferred Path)
+### Step 0: Check for Yavy CLI (Preferred Path)
 
-Before starting the manual flow, check if the Yavy CLI supports `init`:
+Before starting the manual flow, check if the Yavy CLI is installed and supports `init`:
 
 ```bash
-yavy --version 2>/dev/null
+yavy init --help 2>/dev/null
 ```
 
-- **If installed (v0.2.0+):** Delegate to the CLI's built-in init command:
+- **If the command succeeds** (shows help output with `--tool` option): Delegate to the CLI's built-in init command:
 
   > "Yavy CLI detected! Running the guided setup..."
 
@@ -32,21 +32,28 @@ yavy --version 2>/dev/null
 
   If `yavy init` succeeds, skip the rest of this flow entirely. If it fails, fall back to the manual steps below.
 
-- **If not installed or older version:** Continue with the manual flow below.
+- **If the command fails** (not installed or `init` not available): Continue with Step 1 below.
 
-### Step 1: Welcome & CLI Check
+### Step 1: Welcome & CLI Install
 
 Start with a brief, warm greeting:
 
 > "Hey! Let's get Yavy set up so you can search your indexed docs from Claude Code."
 
-Ask the user:
+Check if the CLI is already installed:
 
-> "I need to install the Yavy CLI first. Mind if I run `npm install -g @yavydev/cli`?"
+```bash
+yavy --version 2>/dev/null
+```
 
-Wait for confirmation, then install. If install fails, suggest alternatives (npx, local install).
+- **If installed:** "Yavy CLI is already installed (v{version}). Moving on."
+- **If not installed:** Ask the user:
 
-After installing, try the preferred path again:
+  > "I need to install the Yavy CLI first. Mind if I run `npm install -g @yavydev/cli`?"
+
+  Wait for confirmation, then install. If install fails, suggest alternatives (npx, local install).
+
+After installing (or confirming it's installed), try the preferred path:
 
 ```bash
 yavy init --tool claude-code
@@ -138,7 +145,7 @@ Search indexed documentation via the Yavy CLI.
 | Project | Slug              | Pages   |
 | ------- | ----------------- | ------- |
 | {name}  | `{org}/{project}` | {count} |
-| ...     | ...               | ...     |
+<!-- Repeat the row above for each selected project -->
 
 ## When to Use --project
 
@@ -151,7 +158,7 @@ Search indexed documentation via the Yavy CLI.
 | Issue              | Fix                                                 |
 | ------------------ | --------------------------------------------------- |
 | No results         | Broaden query or remove --project                   |
-| CLI not installed  | Run `npm install -g @yavydev/cli` then `yavy login` |
+| CLI not installed  | Run `npm install -g @yavydev/cli` then `yavy init`  |
 | Stale project list | Re-run `/yavy:init` to refresh                      |
 ```
 
