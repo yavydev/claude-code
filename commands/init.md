@@ -145,6 +145,7 @@ Search indexed documentation via the Yavy CLI.
 | Project | Slug              | Pages   |
 | ------- | ----------------- | ------- |
 | {name}  | `{org}/{project}` | {count} |
+
 <!-- Repeat the row above for each selected project -->
 
 ## When to Use --project
@@ -155,11 +156,11 @@ Search indexed documentation via the Yavy CLI.
 
 ## Gotchas
 
-| Issue              | Fix                                                 |
-| ------------------ | --------------------------------------------------- |
-| No results         | Broaden query or remove --project                   |
-| CLI not installed  | Run `npm install -g @yavydev/cli` then `yavy init`  |
-| Stale project list | Re-run `/yavy:init` to refresh                      |
+| Issue              | Fix                                                |
+| ------------------ | -------------------------------------------------- |
+| No results         | Broaden query or remove --project                  |
+| CLI not installed  | Run `npm install -g @yavydev/cli` then `yavy init` |
+| Stale project list | Re-run `/yavy:init` to refresh                     |
 ```
 
 Replace all `{...}` placeholders with actual values. Keep the description under 500 characters.
