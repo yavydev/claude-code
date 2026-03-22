@@ -85,18 +85,27 @@ Parse the JSON from Step 2. Filter to projects where `has_indexed_content` is tr
 | No indexed projects | Output: "Your account has no indexed projects yet. Add a project at yavy.dev — paste a URL and Yavy will crawl and index it. Once done, run `/yavy:init` again." **Stop here.** |
 | Has projects | Call `AskUserQuestion` with question "Which projects do you want to set up?" and options: first option "All {N} projects", then each project as "{org.slug}/{name} ({pages_count} pages)" |
 
-### Step 4: Run yavy init
+### Step 4: Choose Scope
+
+Call `AskUserQuestion` with question "Where should the skill be installed?" and options ["This project only", "All my projects (global)"]. Map the answer:
+
+| Answer | `--scope` value |
+|--------|-----------------|
+| This project only | `project` |
+| All my projects (global) | `user` |
+
+### Step 5: Run yavy init
 
 Build the command from user selections. Use the plain `slug` field from the JSON (e.g., `knowledge-base`, NOT `org/slug`).
 
-Run: `yavy init --tool claude-code --projects {comma-separated-slugs} 2>&1`
+Run: `yavy init --tool claude-code --projects {comma-separated-slugs} --scope {scope} 2>&1`
 
 | Result | Action |
 |--------|--------|
-| Success | Report summary from CLI output → Step 5 |
+| Success | Report summary from CLI output → Step 6 |
 | Failure | Show the error, suggest retrying or running `! yavy login` |
 
-### Step 5: Summary
+### Step 6: Summary
 
 > All done! Yavy skill configured for {N} project(s).
 >
