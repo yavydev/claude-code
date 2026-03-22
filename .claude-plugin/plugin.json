@@ -1,6 +1,6 @@
 {
     "name": "yavy",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "Index any knowledge source at yavy.dev and search it from Claude Code.",
     "author": {
         "name": "Yavy",

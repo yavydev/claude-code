@@ -34,7 +34,7 @@ yavy --version 2>/dev/null
 ```
 
 - **Installed:** "Yavy CLI v{version} detected."
-- **Not installed:** Ask: "The Yavy CLI isn't installed yet. Can I run `npm install -g @yavydev/cli`?" Wait for confirmation, then install.
+- **Not installed:** Ask via **AskUserQuestion**: "The Yavy CLI isn't installed yet. Can I install it globally via npm?" with options "Yes, install it" / "No, skip". If yes, run `npm install -g @yavydev/cli`.
 
 ### Step 2: Ensure Authenticated
 
@@ -43,23 +43,33 @@ yavy projects --json 2>&1
 ```
 
 - **Returns JSON array:** Authenticated. Continue to Step 3.
-- **Fails/error:** Ask the user via **AskUserQuestion**:
-  - Question: "Are you already signed up at yavy.dev?"
-  - Options: "Yes, I have an account" / "No, I'm new to Yavy"
+- **Fails/error:** Ask via **AskUserQuestion**:
+  - Question: "Do you have a Yavy account?"
+  - Options: "Yes, I need to log in" / "No, I'm new to Yavy"
 
-  **If they have an account:** "Type `! yavy login` to authenticate via your browser." Wait for confirmation, then retry `yavy projects --json`.
+  **If they have an account:**
+  - Run `yavy login 2>&1` to open the browser auth flow.
+  - After it completes, retry `yavy projects --json`. If still failing, suggest trying again.
 
   **If they're new:** Show this getting started guide:
 
-  > Here's how to get started with Yavy:
+  > **What is Yavy?**
+  >
+  > Yavy indexes content from any URL and makes it searchable from your AI coding tools. You can index API docs, framework guides, wikis, knowledge bases - anything with a URL.
+  >
+  > **How to get started:**
   >
   > 1. Go to [yavy.dev](https://yavy.dev) and create a free account
   > 2. Create an organization (this groups your projects)
-  > 3. Add a project - paste any documentation URL and Yavy will crawl and index it
+  > 3. Add a project - paste any URL and Yavy will crawl and index it
   > 4. Wait for indexing to complete (usually a few minutes)
   > 5. Come back here and run `/yavy:init` again
-  >
-  > Yavy can index API docs, framework guides, wikis, knowledge bases - anything with a URL.
+
+  Then ask via **AskUserQuestion**:
+  - Question: "Want me to open the registration page?"
+  - Options: "Yes, open yavy.dev" / "No, I'll do it later"
+
+  If yes, run `open https://yavy.dev/register 2>/dev/null || xdg-open https://yavy.dev/register 2>/dev/null`.
 
   Stop here. Do NOT continue to Step 3.
 
