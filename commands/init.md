@@ -43,7 +43,7 @@ Run: `yavy --version 2>/dev/null`
 | Result | Action |
 |--------|--------|
 | Version printed | Say "Yavy CLI v{version} detected." → Step 2 |
-| Exit code 127 | Call `AskUserQuestion` with question "The Yavy CLI isn't installed yet. Can I install it globally via npm?" and options ["Yes, install it", "No, skip"]. If yes → run `npm install -g @yavydev/cli 2>&1` → Step 2 |
+| Exit code 127 | Call `AskUserQuestion` with question "The Yavy CLI isn't installed yet. Can I install it globally via npm?" and options ["Yes, install it", "No, skip"]. If yes → run `npm install -g @yavydev/cli@latest 2>&1` → Step 2 |
 
 ### Step 2: Ensure Authenticated
 
