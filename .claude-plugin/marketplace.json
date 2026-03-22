@@ -9,8 +9,8 @@
     "plugins": [
         {
             "name": "yavy-docs",
-            "description": "Search and manage your indexed documentation from Yavy",
-            "version": "0.1.1",
+            "description": "Index any knowledge source at yavy.dev and search it from Claude Code.",
+            "version": "0.1.2",
             "author": {
                 "name": "Yavy",
                 "url": "https://yavy.dev"

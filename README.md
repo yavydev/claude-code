@@ -1,50 +1,56 @@
-# Yavy Claude Code Plugins
+# Yavy - Claude Code Plugin
 
-A collection of Claude Code plugins for searching and managing your indexed documentation on [Yavy](https://yavy.dev).
+Index any knowledge source at [yavy.dev](https://yavy.dev) and search it from Claude Code.
 
-## Plugins
+## What is Yavy?
 
-### yavy-docs
+[Yavy](https://yavy.dev) crawls and indexes content from any URL - API docs, framework guides, wikis, knowledge bases, internal docs. Once indexed, you can search it from your AI coding tools (Claude Code, Cursor, VS Code, and more).
 
-Interactive setup that installs the CLI, authenticates with your Yavy account, and configures documentation search for your selected projects.
+This plugin connects Claude Code to your Yavy account so Claude can search your indexed content on-demand while helping you code.
 
-**Features:**
+## Quick Start
 
-- Installs the [Yavy CLI](https://github.com/yavydev/cli) if needed
-- Authenticates via browser-based OAuth
-- Lets you select which projects to set up
-- Offers CLI Search (recommended) or Skill Archive approach
-- Saves skill files to `.claude/skills/` for automatic activation
-
-## Installation
-
-Add the marketplace and install the plugin:
+### 1. Install the plugin
 
 ```
 /plugin marketplace add yavydev/claude-code
 /plugin install yavy-docs@yavy
+/reload-plugins
 ```
 
-## Usage
-
-Once installed, run the init command inside Claude Code:
+### 2. Run the setup
 
 ```
 /yavy:init
 ```
 
-This walks you through the complete setup: CLI installation, authentication, project selection, and documentation search configuration.
+This walks you through CLI installation, authentication, project selection, and skill configuration. If you're new to Yavy, it'll guide you through creating an account too.
+
+## New to Yavy?
+
+1. Go to [yavy.dev](https://yavy.dev) and create a free account
+2. Create an organization (this groups your projects)
+3. Add a project - paste any URL and Yavy will crawl and index it
+4. Wait for indexing to complete (usually a few minutes)
+5. Come back and run `/yavy:init`
+
+## How It Works
+
+1. `/yavy:init` installs the [Yavy CLI](https://github.com/yavydev/cli) and authenticates with your account
+2. You select which indexed projects to connect
+3. The CLI creates a skill file in `.claude/skills/` that Claude Code picks up automatically
+4. When you ask questions that match your indexed content, Claude searches them via `yavy search`
 
 ## Requirements
 
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI
-- A [Yavy](https://yavy.dev) account with indexed documentation
 - Node.js >= 20
+- A [Yavy](https://yavy.dev) account (free)
 
 ## Related
 
-- [Yavy CLI](https://github.com/yavydev/cli) — Search and manage your AI-ready documentation
-- [Yavy](https://yavy.dev) — Index documentation, search with AI
+- [Yavy CLI](https://github.com/yavydev/cli) - search and manage your indexed content
+- [Yavy](https://yavy.dev) - index any knowledge source, search with AI
 
 ## License
 

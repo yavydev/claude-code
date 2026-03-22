@@ -1,7 +1,7 @@
 {
     "name": "yavy",
-    "version": "0.1.1",
-    "description": "Search and manage your indexed documentation from Yavy",
+    "version": "0.1.2",
+    "description": "Index any knowledge source at yavy.dev and search it from Claude Code.",
     "author": {
         "name": "Yavy",
         "url": "https://yavy.dev"
