@@ -1,7 +1,7 @@
 {
     "name": "yavy",
     "version": "0.1.0",
-    "description": "Generate AI skills from your indexed documentation on Yavy",
+    "description": "Search and manage your indexed documentation from Yavy",
     "author": {
         "name": "Yavy",
         "url": "https://yavy.dev"
