@@ -26,6 +26,14 @@ This plugin connects Claude Code to your Yavy account so Claude can search your 
 
 This walks you through CLI installation, authentication, project selection, and skill configuration. If you're new to Yavy, it'll guide you through creating an account too.
 
+### 3. Create a project (optional)
+
+```
+/yavy:create-project
+```
+
+Create a new documentation project directly from Claude Code. Supports web crawl (any URL) and GitHub repositories.
+
 ## New to Yavy?
 
 1. Go to [yavy.dev](https://yavy.dev) and create a free account
